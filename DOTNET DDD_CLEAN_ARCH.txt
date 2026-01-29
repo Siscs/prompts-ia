@@ -1,0 +1,110 @@
+
+## 🧠 Prompt exemplo — C# .NET com DDD + Clean Architecture
+
+> Crie classes em **C# (.NET 8)** seguindo os padrões **DDD (Domain-Driven Design)** e **Clean Architecture**, utilizando **ASP.NET Web API com Controllers** (não utilizar Minimal APIs).
+>
+> ### Regras gerais:
+>
+> * Separar claramente as camadas:
+>
+>   * **Domain**
+>   * **Application**
+>   * **Infrastructure**
+>   * **API**
+> * Usar **Entities, Value Objects, Aggregates e Enums** quando aplicável
+> * Aplicar **encapsulamento** (setters privados quando possível)
+> * Evitar dependências do domínio com camadas externas
+> * Utilizar **DTOs** na camada Application
+> * Controllers devem ser finos (apenas orquestração)
+>
+> ---
+>
+> ### Contexto do domínio:
+>
+> Sistema de gerenciamento de pedidos.
+>
+> ### Domain:
+>
+> * Entity `Cliente`
+> * Entity `Pedido` (Aggregate Root)
+> * Entity `ItemPedido`
+> * Enum `StatusPedido`
+>
+> **Regras de negócio:**
+>
+> * Um Cliente pode possuir vários Pedidos
+> * Um Pedido deve ter pelo menos um Item
+> * O valor total do Pedido é a soma dos itens
+> * Status inicial do Pedido é `Criado`
+>
+> ---
+>
+> ### Application:
+>
+> * Criar DTOs para `Cliente`, `Pedido` e `ItemPedido`
+> * Criar Interfaces de Repositório (`IPedidoRepository`)
+> * Criar um **Use Case / Service** para criar um pedido
+>
+> ---
+>
+> ### Infrastructure:
+>
+> * Implementação dos repositórios usando **Entity Framework Core**
+> * Configurações de mapeamento (Fluent API)
+>
+> ---
+>
+> ### API:
+>
+> * Criar `PedidoController`
+> * Usar **ASP.NET Core Controllers**
+> * Rotas RESTful
+> * Usar `IActionResult`
+>
+> ---
+>
+> ### Requisitos técnicos:
+>
+> * Usar C# moderno
+> * Utilizar `record` apenas para DTOs
+> * Entities devem ser `class`
+> * Incluir comentários XML
+> * Retornar apenas código, separado por arquivos e camadas
+
+---
+
+## ✨ Prompt alternativo (mais curto, para uso diário)
+
+> Crie código **C# .NET 8** usando **DDD + Clean Architecture**, com **Web API baseada em Controllers**.
+>
+> Domínio: Pedidos
+> Gere:
+>
+> * Entities do domínio
+> * DTOs
+> * Interfaces de repositório
+> * Service de aplicação
+> * Controller REST
+>
+> Não use Minimal APIs.
+> Retorne código organizado por camadas.
+
+---
+
+## 🧩 Dica avançada
+
+Se quiser elevar ainda mais o nível, acrescente ao prompt:
+
+* MediatR (CQRS)
+* Validações com FluentValidation
+* Result Pattern
+* Unit of Work
+* Versionamento de API
+
+Se quiser, posso:
+
+* adaptar esse prompt para **CQRS + MediatR**
+* gerar um **template base de solução**
+* ou criar um **prompt focado só em Entities ricas (DDD puro)**
+
+Só falar 😄

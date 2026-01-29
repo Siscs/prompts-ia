@@ -1,0 +1,102 @@
+#TECNOLOGIAS DE IA
+
+Gemini build **
+N8N ****
+Registry
+Lm studio
+xCode
+CODEX
+GROK
+
+LLM
+---------
+Llama 3.1, 
+Phi-3 
+Gemma 2,
+gpt-oss, 
+Qwen3, 
+Gemma3, 
+DeepSeek
+
+#IA GERAR MELHORES PRATICAS
+=================================
+
+Crie um documento em formato markdown em pt-br com as melhores práticas para aplicações utilizando .net core e o pattern de arquitetura hexagonal (portas e adaptadores). Me forneça um exemplo.
+
+Crie um documento em formato markdown em pt-br com as melhores práticas para aplicações com .net core, Angular e Postgresql.
+
+Crie um documento em formato markdown em pt-br com as melhores práticas para aplicações com Next.js, React e Postgresql.
+
+
+
+#IA CRIAR DESCRICAO PARA PAPEL DE ARQUITETO DE SW (CHAT GPT)
+=================================
+1 Crie uma descrição para o papel de um arquiteto de software que conheça muito de .NET e Azure, alem de ser um especialista de
+design pattern e clean code. Quero utilizar essa descricao para o github chat mode, use técnicas para melhorar as ações do agent
+
+2 Quero uma descrição para o papel de um desenvolvedor de software sênior especialista em .NET e AWS e que tenha profundos conhecimentos em design pattern, clean code, conceitos solid, observabilidade, testes e qualidade de software. Quero utilizar essa descricao para o github copilot chat mode, use técnicas para melhorar as ações do agent
+
+
+#IA PROMPTS
+=================================
+
+1. Explicação de código
+Prompt: “Explique linha por linha o que este código faz e a lógica por trás dele”.
+
+Ideal para compreender trechos de código herdados ou de bibliotecas externas, esse comando ajuda a entender a lógica de execução e possíveis gargalos.
+
+2. Refatoração
+
+Prompt: “Refatore este código para torná-lo mais legível, performático e seguindo boas práticas”.
+
+Muito usado em revisões de código, o pedido ajuda a transformar trechos complexos em versões mais limpas e padronizadas, sem alterar o funcionamento original.
+
+3. Debugging
+Prompt: “Encontre erros neste código e sugira como corrigir”.
+
+Aqui, o modelo atua como um assistente de depuração, identificando falhas de lógica, sintaxe ou performance — e ainda oferecendo soluções práticas.
+
+4. Geração de código
+Prompt: “Escreva uma função em [linguagem X] que [faça determinada tarefa]”.
+
+Serve para criar rapidamente funções, scripts e protótipos em qualquer linguagem, desde Python e JavaScript até Rust e Go.
+
+5. Tradução entre linguagens
+Prompt: “Converta este código de Python para JavaScript mantendo a mesma lógica e eficiência”.
+
+Excelente para quem trabalha em ambientes híbridos, esse comando poupa tempo em migrações e compatibilizações entre tecnologias.
+
+6. Documentação automática
+Prompt: “Gere uma documentação clara e objetiva para este código/função/endpoint”.
+
+Transforma código em documentação compreensível e bem formatada, agilizando o processo de entrega e manutenção de sistemas.
+
+7. Explicação de conceitos técnicos
+Prompt: “Explique [conceito técnico, como microserviços, Kubernetes, machine learning supervisionado] de forma simples, como se fosse para um iniciante”.
+
+Recurso essencial para aprendizado contínuo e treinamentos internos, ajudando a traduzir jargões técnicos em explicações acessíveis.
+
+8. Boas práticas e padrões de projeto
+Prompt: “Qual é o melhor padrão de projeto para resolver [problema específico] em [linguagem/framework]?”
+
+Ajuda a aplicar princípios de engenharia de software com base em padrões como Factory, Singleton ou Observer, garantindo escalabilidade e organização.
+
+9. Criação de testes
+Prompt: “Escreva testes unitários para esta função usando [framework de testes X]”.
+
+Automatiza uma das partes mais críticas do desenvolvimento, garantindo cobertura de testes e qualidade do código.
+
+10. Otimização de consultas e scripts
+Prompt: “Otimize esta query SQL para rodar mais rápido em um banco de dados com milhões de registros”.
+
+Usado para bancos de dados de grande escala, o comando identifica gargalos e propõe melhorias de performance e indexação.
+
+11 Bônus: prompts para cientistas de dados e analistas de negócios
+
+Além dos comandos de programação, há prompts que auxiliam quem trabalha com dados e relatórios:
+- “Explique os resultados desta regressão linear em linguagem simples”.
+- “Gere um gráfico comparativo com estes dados em Python usando Matplotlib”.
+- “Crie um pipeline de machine learning para classificar [tipo de dado]”.
+
+12 sql
+prompt: Eu quero uma explicação detalhada do comando sql outer apply (ms sql server). compare com outros tipos de join.

@@ -1,0 +1,594 @@
+
+1. Exemplo de Prompt Customizável (.NET C#)
+
+Atue como um desenvolvedor sênior .NET especializado em C#, DDD e Clean Architecture.
+
+Crie uma solução .NET utilizando ASP.NET Core com Controllers (não utilizar Minimal APIs),
+seguindo os princípios de Clean Architecture e Domain-Driven Design (DDD).
+
+Utilize os seguintes parâmetros customizáveis:
+
+- Nome da Solução: {{SolutionName}}
+- Namespace raiz: {{RootNamespace}}
+- Nome do projeto de API: {{ApiProjectName}}
+- Nome do projeto de Application: {{ApplicationProjectName}}
+- Nome do projeto de Domain: {{DomainProjectName}}
+- Nome do projeto de Infrastructure: {{InfrastructureProjectName}}
+- Contexto de domínio principal: {{BoundedContext}}
+- Entidade principal: {{EntityName}}
+
+### Estrutura desejada:
+- {{ApiProjectName}}
+  - Controllers
+- {{ApplicationProjectName}}
+  - Interfaces
+  - UseCases
+  - DTOs
+- {{DomainProjectName}}
+  - Entities
+  - ValueObjects
+  - Interfaces
+- {{InfrastructureProjectName}}
+  - Persistence
+  - Repositories
+  - Mappings
+
+### Regras obrigatórias:
+- Utilizar namespaces baseados em {{RootNamespace}}
+- As entidades devem ficar apenas no projeto Domain
+- Repositórios devem ser definidos como interfaces no Domain
+- Implementações de repositório devem ficar na Infrastructure
+- Controllers devem depender apenas da camada Application
+- Usar Dependency Injection nativo do ASP.NET Core
+- Utilizar padrões como Repository e Unit of Work quando aplicável
+
+### Entregáveis:
+1. Estrutura de pastas e projetos
+2. Exemplo de namespace completo para cada camada
+3. Classe da entidade {{EntityName}} no Domain
+4. Interface de repositório no Domain
+5. Implementação do repositório na Infrastructure
+6. Use Case (Application Service) para criar {{EntityName}}
+7. Controller utilizando o Use Case
+8. Exemplos de namespaces em todos os arquivos
+
+Utilize C# moderno (.NET 8 ou superior) e boas práticas de código.
+
+----------------
+
+Exemplo de uso do prompt (preenchido)
+
+{{SolutionName}} = SalesManagement
+{{RootNamespace}} = Company.Sales
+{{ApiProjectName}} = Company.Sales.Api
+{{ApplicationProjectName}} = Company.Sales.Application
+{{DomainProjectName}} = Company.Sales.Domain
+{{InfrastructureProjectName}} = Company.Sales.Infrastructure
+{{BoundedContext}} = Orders
+{{EntityName}} = Order
+
+2. Prompt Base .NET C# — Clean Architecture + DDD + CQRS
+
+Atue como um desenvolvedor sênior .NET especializado em C#, DDD, Clean Architecture e CQRS.
+
+Crie uma solução .NET utilizando ASP.NET Core com Controllers
+(NÃO utilizar Minimal APIs),
+seguindo Clean Architecture, Domain-Driven Design (DDD) e o padrão CQRS
+(Command Query Responsibility Segregation).
+
+Utilize os seguintes parâmetros customizáveis:
+
+- Nome da Solução: {{SolutionName}}
+- Namespace raiz: {{RootNamespace}}
+- Projeto de API: {{ApiProjectName}}
+- Projeto de Application: {{ApplicationProjectName}}
+- Projeto de Domain: {{DomainProjectName}}
+- Projeto de Infrastructure: {{InfrastructureProjectName}}
+- Bounded Context principal: {{BoundedContext}}
+- Entidade principal: {{EntityName}}
+
+---
+
+## 📁 Estrutura de projetos (obrigatória)
+
+{{ApiProjectName}}
+- Controllers
+- DependencyInjection
+
+{{ApplicationProjectName}}
+- Abstractions
+- Commands
+  - Create{{EntityName}}
+  - Update{{EntityName}}
+- Queries
+  - Get{{EntityName}}ById
+  - Get{{EntityName}}List
+- DTOs
+- Behaviors (opcional – pipeline)
+
+{{DomainProjectName}}
+- Entities
+- ValueObjects
+- Enums
+- Interfaces
+- Events
+
+{{InfrastructureProjectName}}
+- Persistence
+- Repositories
+- ReadModels
+- Mappings
+
+---
+
+## 📐 Regras arquiteturais obrigatórias
+
+- Todos os namespaces devem iniciar com {{RootNamespace}}
+- A camada API depende apenas da Application
+- A camada Application NÃO depende da Infrastructure
+- A camada Domain NÃO depende de nenhuma outra camada
+- A Infrastructure depende de Application e Domain
+- CQRS:
+  - Commands NÃO retornam entidades
+  - Queries NÃO alteram estado
+- Separar modelos de leitura (Read Models) quando necessário
+- Repositórios:
+  - Interfaces no Domain
+  - Implementações na Infrastructure
+- Controllers:
+  - Um controller por Aggregate Root
+  - Controllers NÃO acessam repositórios diretamente
+- Usar Dependency Injection nativo do ASP.NET Core
+- Usar MediatR ou padrão equivalente para Commands e Queries
+
+---
+
+## 🎯 Entregáveis esperados
+
+1. Estrutura completa da solução
+2. Exemplos de namespaces completos por camada
+3. Entidade {{EntityName}} (Aggregate Root) no Domain
+4. Evento de domínio (ex: {{EntityName}}CreatedEvent)
+5. Interface de repositório no Domain
+6. Implementação do repositório na Infrastructure
+7. Command:
+   - Create{{EntityName}}Command
+   - Handler correspondente
+8. Query:
+   - Get{{EntityName}}ByIdQuery
+   - Handler correspondente
+9. DTOs usados em Commands e Queries
+10. Controller utilizando Commands e Queries via MediatR
+11. Registro de dependências (DI)
+
+---
+
+## 🛠️ Requisitos técnicos
+
+- .NET 8 ou superior
+- C# moderno
+- Controllers com atributos [ApiController]
+- Usar async/await
+- Código limpo, legível e orientado a boas práticas
+
+======================
+
+Exemplo de parâmetros preenchidos
+
+
+{{SolutionName}} = CustomerManagement
+{{RootNamespace}} = Company.Customers
+{{ApiProjectName}} = Company.Customers.Api
+{{ApplicationProjectName}} = Company.Customers.Application
+{{DomainProjectName}} = Company.Customers.Domain
+{{InfrastructureProjectName}} = Company.Customers.Infrastructure
+{{BoundedContext}} = Customers
+{{EntityName}} = Customer
+
+
+3. Prompt Base — .NET C# | Clean Architecture + DDD + CQRS (Handlers Manuais)
+
+Atue como um desenvolvedor sênior .NET especializado em C#, DDD, Clean Architecture
+e CQRS sem uso de MediatR ou qualquer biblioteca de mensageria.
+
+Crie uma solução .NET utilizando ASP.NET Core com Controllers
+(NÃO utilizar Minimal APIs),
+seguindo os princípios de Clean Architecture, Domain-Driven Design (DDD)
+e CQRS com handlers manuais.
+
+---
+
+## 🔧 Parâmetros customizáveis
+
+- Nome da Solução: {{SolutionName}}
+- Namespace raiz: {{RootNamespace}}
+- Projeto de API: {{ApiProjectName}}
+- Projeto de Application: {{ApplicationProjectName}}
+- Projeto de Domain: {{DomainProjectName}}
+- Projeto de Infrastructure: {{InfrastructureProjectName}}
+- Bounded Context principal: {{BoundedContext}}
+- Aggregate Root / Entidade principal: {{EntityName}}
+
+---
+
+## 📁 Estrutura obrigatória de projetos
+
+{{ApiProjectName}}
+- Controllers
+- DependencyInjection
+
+{{ApplicationProjectName}}
+- Abstractions
+  - Commands
+  - Queries
+- Commands
+  - Create{{EntityName}}
+  - Update{{EntityName}}
+- Queries
+  - Get{{EntityName}}ById
+  - Get{{EntityName}}List
+- DTOs
+
+{{DomainProjectName}}
+- Entities
+- ValueObjects
+- Enums
+- Interfaces
+- Events
+
+{{InfrastructureProjectName}}
+- Persistence
+- Repositories
+- ReadModels
+- Mappings
+
+---
+
+## 📐 Regras arquiteturais obrigatórias
+
+- Todos os namespaces devem iniciar com {{RootNamespace}}
+- A camada API depende apenas da Application
+- Application NÃO depende da Infrastructure
+- Domain NÃO depende de nenhuma outra camada
+- Infrastructure depende de Domain e Application
+- CQRS:
+  - Commands alteram estado e NÃO retornam entidades
+  - Queries apenas retornam dados e NÃO alteram estado
+- Separar modelos de escrita (Entities) e leitura (ReadModels)
+- Repositórios:
+  - Interfaces no Domain
+  - Implementações na Infrastructure
+- Handlers manuais:
+  - Um handler por Command
+  - Um handler por Query
+  - Handlers expostos via interfaces
+- Controllers:
+  - NÃO acessam repositórios diretamente
+  - Dependem apenas de handlers
+- Usar Dependency Injection nativo do ASP.NET Core
+- Usar async/await e CancellationToken
+
+---
+
+## 🧩 Padrão obrigatório para CQRS sem MediatR
+
+### Commands
+- Command (DTO de entrada)
+- Interface: I{{CommandName}}Handler
+- Implementação: {{CommandName}}Handler
+
+### Queries
+- Query (DTO de entrada)
+- Interface: I{{QueryName}}Handler
+- Implementação: {{QueryName}}Handler
+
+---
+
+## 🎯 Entregáveis esperados
+
+1. Estrutura completa da solução
+2. Exemplo de namespaces completos por camada
+3. Entidade {{EntityName}} como Aggregate Root
+4. Evento de domínio (ex: {{EntityName}}CreatedEvent)
+5. Interface de repositório no Domain
+6. Implementação do repositório na Infrastructure
+7. Command:
+   - Create{{EntityName}}Command
+   - Interface ICreate{{EntityName}}CommandHandler
+   - Implementação Create{{EntityName}}CommandHandler
+8. Query:
+   - Get{{EntityName}}ByIdQuery
+   - Interface IGet{{EntityName}}ByIdQueryHandler
+   - Implementação Get{{EntityName}}ByIdQueryHandler
+9. DTOs de leitura (ReadModels)
+10. Controller consumindo handlers diretamente
+11. Registro completo de dependências (DI)
+
+---
+
+## 🛠️ Requisitos técnicos
+
+- .NET 8 ou superior
+- ASP.NET Core com Controllers
+- C# moderno
+- Código explícito, sem uso de reflection ou pipelines mágicos
+- Alta legibilidade e baixo acoplamento
+
+Exemplo de parâmetros preenchidos
+
+{{SolutionName}} = BillingSystem
+{{RootNamespace}} = Company.Billing
+{{ApiProjectName}} = Company.Billing.Api
+{{ApplicationProjectName}} = Company.Billing.Application
+{{DomainProjectName}} = Company.Billing.Domain
+{{InfrastructureProjectName}} = Company.Billing.Infrastructure
+{{BoundedContext}} = Invoices
+{{EntityName}} = Invoice
+
+4. Prompt Base — .NET C# | Testes com xUnit + Moq (CQRS sem MediatR)
+
+Atue como um desenvolvedor sênior .NET especializado em C#, testes automatizados,
+xUnit, Moq, Clean Architecture, DDD e CQRS com handlers manuais.
+
+Crie testes unitários e de integração leve para a solução .NET descrita abaixo,
+seguindo boas práticas de testes, isolamento de dependências e alta legibilidade.
+
+---
+
+## 🔧 Parâmetros customizáveis
+
+- Namespace raiz: {{RootNamespace}}
+- Projeto de Application: {{ApplicationProjectName}}
+- Projeto de Domain: {{DomainProjectName}}
+- Projeto de Infrastructure: {{InfrastructureProjectName}}
+- Projeto de Testes: {{TestsProjectName}}
+- Bounded Context: {{BoundedContext}}
+- Aggregate Root / Entidade: {{EntityName}}
+
+---
+
+## 📁 Estrutura do projeto de testes
+
+{{TestsProjectName}}
+- Application
+  - Commands
+  - Queries
+- Domain
+- Infrastructure
+- Fixtures
+- Mocks
+- Builders
+
+---
+
+## 📐 Regras obrigatórias de testes
+
+- Utilizar xUnit como framework de testes
+- Utilizar Moq para mockar dependências
+- NÃO utilizar banco de dados real
+- NÃO utilizar serviços externos
+- Testes devem ser:
+  - Determinísticos
+  - Independentes
+  - Nomeados no padrão: MethodName_Condition_ExpectedResult
+- Cada teste deve validar apenas um comportamento
+- Usar AAA pattern (Arrange, Act, Assert)
+
+---
+
+## 🧩 Escopo de testes obrigatórios
+
+### 🟦 Application Layer
+- Testar Command Handlers:
+  - Caso de sucesso
+  - Validações de entrada
+  - Regras de negócio
+  - Interação com repositórios
+- Testar Query Handlers:
+  - Retorno correto dos dados
+  - Comportamento quando não há dados
+- Mockar interfaces do Domain
+
+---
+
+### 🟩 Domain Layer
+- Testar:
+  - Criação da entidade {{EntityName}}
+  - Regras de negócio
+  - Invariantes
+- NÃO mockar Domain
+
+---
+
+### 🟨 Infrastructure Layer
+- Testar:
+  - Implementações de repositórios
+  - Mapeamentos
+- Utilizar mocks para dependências externas
+
+---
+
+## 🎯 Entregáveis esperados
+
+1. Projeto de testes configurado
+2. Referências corretas para Application, Domain e Infrastructure
+3. Testes unitários para:
+   - Create{{EntityName}}CommandHandler
+   - Get{{EntityName}}ByIdQueryHandler
+4. Testes de domínio para a entidade {{EntityName}}
+5. Uso correto de Moq (Setup, Verify)
+6. Uso de Fixtures e Builders para dados de teste
+7. Exemplos claros de Arrange / Act / Assert
+8. Cobertura de cenários de sucesso e falha
+
+---
+
+## 🛠️ Requisitos técnicos
+
+- .NET 8 ou superior
+- xUnit
+- Moq
+- FluentAssertions (opcional, se aplicável)
+- Código limpo, explícito e fácil de manter
+
+Exemplo 
+{{RootNamespace}} = Company.Billing
+{{ApplicationProjectName}} = Company.Billing.Application
+{{DomainProjectName}} = Company.Billing.Domain
+{{InfrastructureProjectName}} = Company.Billing.Infrastructure
+{{TestsProjectName}} = Company.Billing.Tests
+{{BoundedContext}} = Invoices
+{{EntityName}} = Invoice
+
+
+5. Prompt Base — .NET C# | Multi-Bounded Contexts
+
+Atue como um desenvolvedor sênior .NET especializado em C#, DDD estratégico,
+Clean Architecture e CQRS com handlers manuais, trabalhando com múltiplos
+Bounded Contexts na mesma solução.
+
+Crie uma solução .NET organizada por Bounded Context,
+mantendo isolamento de domínio, baixo acoplamento
+e comunicação explícita entre contextos.
+
+---
+
+## 🔧 Parâmetros customizáveis
+
+- Nome da Solução: {{SolutionName}}
+- Namespace raiz: {{RootNamespace}}
+- Projeto de API: {{ApiProjectName}}
+- Projeto de Shared Kernel (opcional): {{SharedKernelProjectName}}
+- Bounded Contexts:
+  - {{BoundedContext1}}
+  - {{BoundedContext2}}
+  - {{BoundedContextN}}
+
+Para cada Bounded Context:
+- Entidade principal: {{EntityName}}
+- Projeto Application
+- Projeto Domain
+- Projeto Infrastructure
+
+---
+
+## 🧱 Organização da solução (obrigatória)
+
+{{SolutionName}}
+- src
+  - {{ApiProjectName}}
+  - SharedKernel (opcional)
+  - {{BoundedContext1}}
+    - {{BoundedContext1}}.Application
+    - {{BoundedContext1}}.Domain
+    - {{BoundedContext1}}.Infrastructure
+  - {{BoundedContext2}}
+    - {{BoundedContext2}}.Application
+    - {{BoundedContext2}}.Domain
+    - {{BoundedContext2}}.Infrastructure
+
+- tests
+  - {{BoundedContext1}}.Tests
+  - {{BoundedContext2}}.Tests
+
+---
+
+## 📐 Regras arquiteturais obrigatórias
+
+### Isolamento de Contextos
+- Cada Bounded Context:
+  - Possui seu próprio modelo de domínio
+  - NÃO compartilha entidades com outros contextos
+  - NÃO referencia diretamente Domain de outro contexto
+- Comunicação entre contextos deve ocorrer APENAS via:
+  - Interfaces
+  - Eventos de domínio ou integração
+  - DTOs explícitos
+
+---
+
+### Camadas (por contexto)
+
+#### Domain
+- Entidades
+- Value Objects
+- Regras de negócio
+- Eventos de domínio
+- Interfaces (ex: repositórios)
+
+#### Application
+- Commands
+- Queries
+- Handlers manuais
+- DTOs
+- Portas de entrada e saída
+
+#### Infrastructure
+- Persistência
+- Repositórios
+- Integrações externas
+- Read Models
+
+---
+
+## 🔀 Comunicação entre Bounded Contexts
+
+- NÃO usar referências diretas entre Domains
+- Preferir:
+  - Domain Events → Integration Events
+  - Anti-Corruption Layer (ACL)
+- Cada contexto deve traduzir dados externos para seu próprio modelo
+
+---
+
+## 🧩 Padrões obrigatórios (CQRS sem MediatR)
+
+### Commands
+- {{Action}}{{EntityName}}Command
+- I{{Action}}{{EntityName}}CommandHandler
+- {{Action}}{{EntityName}}CommandHandler
+
+### Queries
+- Get{{EntityName}}ByIdQuery
+- IGet{{EntityName}}ByIdQueryHandler
+- Get{{EntityName}}ByIdQueryHandler
+
+---
+
+## 🎯 Entregáveis esperados
+
+1. Estrutura completa da solução multi-bounded contexts
+2. Exemplo de namespaces completos por contexto
+3. Entidade principal de cada Bounded Context
+4. Commands e Queries por contexto
+5. Handlers manuais por contexto
+6. Comunicação entre contextos via eventos ou interfaces
+7. Controllers organizados por contexto
+8. Registro de dependências por contexto
+9. Exemplo de Anti-Corruption Layer
+10. Projeto de testes por Bounded Context
+
+---
+
+## 🛠️ Requisitos técnicos
+
+- .NET 8 ou superior
+- ASP.NET Core com Controllers
+- CQRS com handlers explícitos
+- Sem uso de MediatR
+- Alta coesão dentro do contexto
+- Baixo acoplamento entre contextos
+
+Exemplo de uso (preenchido)
+{{SolutionName}} = CommerceSystem
+{{RootNamespace}} = Company.Commerce
+{{ApiProjectName}} = Company.Commerce.Api
+{{SharedKernelProjectName}} = Company.Commerce.SharedKernel
+
+{{BoundedContext1}} = Orders
+{{EntityName}} = Order
+
+{{BoundedContext2}} = Billing
+{{EntityName}} = Invoice
+
+6. 

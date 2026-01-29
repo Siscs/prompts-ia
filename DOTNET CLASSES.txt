@@ -1,0 +1,85 @@
+
+### 🧠 Exemplo de prompt (genérico e reutilizável)
+
+> Crie classes em **C# (.NET 6 ou superior)** seguindo boas práticas.
+>
+> **Requisitos:**
+>
+> * Usar **properties com getters e setters**
+> * Utilizar **tipos fortemente tipados**
+> * Aplicar **Data Annotations** quando fizer sentido
+> * Seguir **convenções de nomenclatura do C#**
+> * Incluir **comentários XML**
+>
+> **Contexto do domínio:**
+> Sistema de gerenciamento de pedidos.
+>
+> **Classes desejadas:**
+>
+> * Cliente
+> * Pedido
+> * ItemPedido
+>
+> **Regras:**
+>
+> * Um Cliente pode ter vários Pedidos
+> * Um Pedido possui vários Itens
+> * Pedido deve ter status (enum)
+> * Datas devem usar `DateTime`
+>
+> Gere apenas o código C#.
+
+---
+
+### 📦 Exemplo de prompt focado em Entity Framework
+
+> Crie uma classe **C# (.NET)** para uso com **Entity Framework Core**.
+>
+> **Detalhes:**
+>
+> * Nome da classe: `Produto`
+> * Propriedades:
+>
+>   * Id (int, chave primária)
+>   * Nome (string, obrigatório, máximo 100 caracteres)
+>   * Preco (decimal, precisão 18,2)
+>   * Ativo (bool)
+>   * DataCadastro (DateTime)
+>
+> **Requisitos adicionais:**
+>
+> * Usar **DataAnnotations**
+> * Usar `required` quando aplicável
+> * Código limpo e comentado
+>
+> Retorne somente a classe.
+
+---
+
+### 🚀 Exemplo de prompt curto (rápido do dia a dia)
+
+> Gere uma classe C# chamada `Usuario` com propriedades:
+> `Id`, `Nome`, `Email`, `Senha`, `DataCriacao`.
+> Use boas práticas e comentários XML.
+
+---
+
+### 💡 Dica profissional
+
+Se quiser resultados ainda melhores, inclua no prompt:
+
+* versão do .NET (`.NET 8`, `.NET 6`)
+* padrão arquitetural (DDD, Clean Architecture)
+* se é DTO, Entity ou ViewModel
+* se deve ser `record` ou `class`
+
+Se quiser, posso **criar prompts específicos** para:
+
+* DTOs
+* Records
+* Minimal APIs
+* Clean Architecture
+* DDD
+* EF Core
+
+É só dizer 😄
